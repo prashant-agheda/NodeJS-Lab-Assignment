@@ -1,0 +1,139 @@
+<!--
+	Name: Prashant Agheda
+	PRN No: 20180201001
+
+	1. Create an HTML form that contain the Student Registration details and
+	   write a JavaScript to validate Student first and last name as it should
+	   not contain other than alphabets and age should be between 18 to 50.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title> Question 1 - Student Registration Form with Validation </title>
+
+    <!-- CSS Code -->
+	<style>
+        /* Importing Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+		*
+		{
+			margin: 0;
+			padding: 0;
+			font-family: 'Roboto', sans-serif;
+			font-size: 20px;
+		}
+		form
+		{
+			width: 600px;
+			margin-left: 40px;
+			margin-top: 40px;
+			padding: 20px;
+			border: 15px solid green;
+			border-radius: 40px;
+		}
+		fieldset
+		{
+			padding: 30px;
+			border: 2px solid green;
+			border-radius: 40px;
+		}
+		input[type="text"]
+		{
+			padding: 4px;
+		}
+		input[type="submit"], input[type="reset"]
+		{
+			padding: 8px;
+			border-radius: 40px;
+			width: 120px;
+			border: none;
+			background-color: black;
+			color: white;
+			transition: 0.3s ease;
+		}
+		input[type="submit"]:hover, input[type="reset"]:hover
+		{
+			background-color: rgba(0, 0, 0, 0.5);
+			border-radius: 0;
+			transition: 0.3s ease;
+		}
+		input[type="submit"]:hover, input[type="reset"]:hover
+		{
+			background-color: rgba(0, 0, 0, 0.5);
+			border-radius: 0;
+			transition: 0.3s ease;
+		}
+	</style>
+</head>
+<body>
+	<form name="myForm" onsubmit="validateForm()" >
+		<fieldset>
+			<legend> Student Registration Form </legend>
+			<p> First Name :
+				<input type="text" id="firstname" />
+			</p>
+			<br/>
+			<p> Last Name :
+				<input type="text" id="lastname" />
+			</p>
+			<br/>
+			<p> Age :
+				<input type="text" id="age" />
+			</p>
+			<br/>
+			<p> City :
+				<input type="text" id="city" />
+			</p>
+			<br/>
+			<p>
+				<input type="submit" id="loginBtn" value="Submit" />
+				<input type="reset" id="resetBtn" value="Reset" onclick="clearInputFields();" />
+			</p>
+		</fieldset>
+	</form>
+	
+    <!-- JavaScript Code -->
+	<script type="text/javascript">
+		
+		function validateForm()
+		{
+			var firstname = document.myForm.firstname.value;
+			var lastname = document.myForm.lastname.value;
+			var age = document.myForm.age.value;
+			var city = document.myForm.city.value;
+			
+            // Checking for Empty Fields
+			if( !firstname || !lastname || !age || !city )
+			{
+				alert("Fields should NOT be EMPTY");
+			}
+            // Checking that Names contain Only Alphabets
+			else if(!firstname.match(/^[A-Za-z]+$/) || !lastname.match(/^[A-Za-z]+$/))
+			{
+				alert(" Both Names Should Only Contain Alphabets");
+			}
+            // Checking that Age is between 18 to 50
+			else if(!(age >= 18 && age <= 50))
+			{
+				alert("Invalid Age...Please Enter between 18 to 50");
+			}
+            else
+            {
+                alert("Form Submitted Successfully :)");
+            }
+		}
+
+        function clearInputFields()
+        {
+            document.myForm.firstname.value = "";
+			document.myForm.lastname.value = "";
+			document.myForm.age.value = "";
+			document.myForm.city.value = "";
+            alert("Input Fields Cleared...");
+        }
+		
+	</script>
+</body>
+</html>

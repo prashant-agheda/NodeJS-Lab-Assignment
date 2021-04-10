@@ -1,0 +1,11 @@
+{
+  "name": "question-9-file",
+  "version": "1.0.0",
+  "description": "Edit Description and Author of this file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prashant Agheda",
+  "license": "ISC"
+}

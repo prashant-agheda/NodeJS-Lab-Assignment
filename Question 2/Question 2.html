@@ -1,0 +1,120 @@
+<!--
+	Name: Prashant Agheda
+	PRN No: 20180201001
+
+	2. Create an HTML form for Login and write a JavaScript
+       to validate email ID using Regular Expression.
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title> Question 2 - Login Form with Email Validation </title>
+
+    <!-- CSS Code -->
+	<style>
+        /* Importing Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+		*
+		{
+			margin: 0;
+			padding: 0;
+			font-family: 'Roboto', sans-serif;
+			font-size: 20px;
+		}
+		form
+		{
+			width: 600px;
+			margin-left: 40px;
+			margin-top: 40px;
+			padding: 20px;
+			border: 10px solid red;
+			border-radius: 30px;
+		}
+		fieldset
+		{
+			padding: 30px;
+			border: 2px solid red;
+			border-radius: 30px;
+		}
+		input[type="text"]
+		{
+			padding: 4px;
+		}
+		input[type="submit"], input[type="reset"]
+		{
+			padding: 8px;
+			border-radius: 40px;
+			width: 120px;
+			border: none;
+			background-color: black;
+			color: white;
+			transition: 0.3s ease;
+		}
+		input[type="submit"]:hover, input[type="reset"]:hover
+		{
+			background-color: rgba(0, 0, 0, 0.5);
+			border-radius: 0;
+			transition: 0.3s ease;
+		}
+	</style>
+</head>
+<body>
+	<form name="myForm" onsubmit="validateEmailId()" >
+		<fieldset>
+			<legend> Login Form </legend>
+			<p> Email Id :
+				<input type="text" id="email" />
+			</p>
+			<br/>
+			<p> Password :
+				<input type="text" id="password" />
+			</p>
+			<br/>
+			<br/>
+			<p>
+				<input type="submit" id="loginBtn" value="Login" />
+				<input type="reset" id="resetBtn" value="Reset" onclick="clearInputFields()" />
+			</p>
+		</fieldset>
+	</form>
+	
+    <!-- JavaScript Code -->
+	<script type="text/javascript">
+
+		function validateEmailId()
+		{
+			var email = document.myForm.email.value;
+			var password = document.myForm.password.value;
+
+			// Regular Expression for Email Validation
+			var validEmailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+			// Checking for Empty Fields
+			if(!email || !password)
+			{
+				alert("Fields should NOT be Empty :(");
+			}
+			// Checking that Email contains the Valid Pattern like Regular Expression
+			else if(!email.match(validEmailPattern))
+			{
+				// Try This to Check That its working :- yourname.domain.com (Here @ is not present)
+				alert("Please Enter Valid Email Address\nFor Example: yourname@domain.com");
+			}
+			else
+			{
+				alert("Email Validated Successfully and Form Submitted :)");
+			}
+		}
+
+        function clearInputFields()
+        {
+            document.myForm.email.value = "";
+			document.myForm.password.value = "";
+            alert("Input Fields Cleared...");
+        }
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "area-of-rectangle",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prashant",
+  "license": "ISC",
+  "dependencies": {
+    "area-of-rectangle-prashant": "^1.1.0"
+  }
+}
